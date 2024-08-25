@@ -1,0 +1,281 @@
+import java.util.List;
+
+// Hava Yolu Şirketi
+class HavaYoluSirketi {
+    private String kimlik;
+    private String isim;
+    private List<Ucak> ucaklar;  // Hava yolunun sahip olduğu uçaklar
+    private List<Pilot> pilotlar; // Hava yolunun sahip olduğu pilotlar
+
+    // Constructor
+    public HavaYoluSirketi(String kimlik, String isim) {
+        this.kimlik = kimlik;
+        this.isim = isim;
+    }
+
+    // Uçak ekleme
+    public void ucakEkle(Ucak ucak) {
+        ucaklar.add(ucak);
+    }
+
+    // Pilot ekleme
+    public void pilotEkle(Pilot pilot) {
+        pilotlar.add(pilot);
+    }
+
+    // Getters ve Setters
+    public String getKimlik() {
+        return kimlik;
+    }
+
+    public void setKimlik(String kimlik) {
+        this.kimlik = kimlik;
+    }
+
+    public String getIsim() {
+        return isim;
+    }
+
+    public void setIsim(String isim) {
+        this.isim = isim;
+    }
+
+    public List<Ucak> getUcaklar() {
+        return ucaklar;
+    }
+
+    public List<Pilot> getPilotlar() {
+        return pilotlar;
+    }
+}
+
+// Uçak
+class Ucak {
+    private String kimlik;
+    private String tip;
+    private boolean calisirDurumda;
+    private HavaYoluSirketi sahibi;
+
+    // Constructor
+    public Ucak(String kimlik, String tip, HavaYoluSirketi sahibi) {
+        this.kimlik = kimlik;
+        this.tip = tip;
+        this.calisirDurumda = true; // Varsayılan olarak çalışır durumda
+        this.sahibi = sahibi;
+    }
+
+    // Uçak durumu değiştirme
+    public void setCalisirDurumda(boolean calisirDurumda) {
+        this.calisirDurumda = calisirDurumda;
+    }
+
+    // Getters
+    public String getKimlik() {
+        return kimlik;
+    }
+
+    public String getTip() {
+        return tip;
+    }
+
+    public boolean isCalisirDurumda() {
+        return calisirDurumda;
+    }
+
+    public HavaYoluSirketi getSahibi() {
+        return sahibi;
+    }
+}
+
+// Pilot
+class Pilot {
+    private String kimlik;
+    private String isim;
+    private int deneyimSeviyesi;
+
+    // Constructor
+    public Pilot(String kimlik, String isim, int deneyimSeviyesi) {
+        this.kimlik = kimlik;
+        this.isim = isim;
+        this.deneyimSeviyesi = deneyimSeviyesi;
+    }
+
+    // Getters ve Setters
+    public String getKimlik() {
+        return kimlik;
+    }
+
+    public void setKimlik(String kimlik) {
+        this.kimlik = kimlik;
+    }
+
+    public String getIsim() {
+        return isim;
+    }
+
+    public void setIsim(String isim) {
+        this.isim = isim;
+    }
+
+    public int getDeneyimSeviyesi() {
+        return deneyimSeviyesi;
+    }
+
+    public void setDeneyimSeviyesi(int deneyimSeviyesi) {
+        this.deneyimSeviyesi = deneyimSeviyesi;
+    }
+}
+
+// Havaalanı
+class Havaalani {
+    private String kimlik;
+    private String isim;
+
+    // Constructor
+    public Havaalani(String kimlik, String isim) {
+        this.kimlik = kimlik;
+        this.isim = isim;
+    }
+
+    // Getters ve Setters
+    public String getKimlik() {
+        return kimlik;
+    }
+
+    public void setKimlik(String kimlik) {
+        this.kimlik = kimlik;
+    }
+
+    public String getIsim() {
+        return isim;
+    }
+
+    public void setIsim(String isim) {
+        this.isim = isim;
+    }
+}
+
+// Uçuş
+class Ucus {
+    private String kimlik;
+    private Havaalani kalkisHavaalani;
+    private Havaalani inisHavaalani;
+    private String kalkisSaati;
+    private String inisSaati;
+    private Pilot kaptanPilot;
+    private Pilot yardimciPilot;
+    private Ucak ucak;
+
+    // Constructor
+    public Ucus(String kimlik, Havaalani kalkisHavaalani, Havaalani inisHavaalani, String kalkisSaati, String inisSaati, Pilot kaptanPilot, Pilot yardimciPilot, Ucak ucak) {
+        this.kimlik = kimlik;
+        this.kalkisHavaalani = kalkisHavaalani;
+        this.inisHavaalani = inisHavaalani;
+        this.kalkisSaati = kalkisSaati;
+        this.inisSaati = inisSaati;
+        this.kaptanPilot = kaptanPilot;
+        this.yardimciPilot = yardimciPilot;
+        this.ucak = ucak;
+    }
+
+    // Getters ve Setters
+    public String getKimlik() {
+        return kimlik;
+    }
+
+    public void setKimlik(String kimlik) {
+        this.kimlik = kimlik;
+    }
+
+    public Havaalani getKalkisHavaalani() {
+        return kalkisHavaalani;
+    }
+
+    public void setKalkisHavaalani(Havaalani kalkisHavaalani) {
+        this.kalkisHavaalani = kalkisHavaalani;
+    }
+
+    public Havaalani getInisHavaalani() {
+        return inisHavaalani;
+    }
+
+    public void setInisHavaalani(Havaalani inisHavaalani) {
+        this.inisHavaalani = inisHavaalani;
+    }
+
+    public String getKalkisSaati() {
+        return kalkisSaati;
+    }
+
+    public void setKalkisSaati(String kalkisSaati) {
+        this.kalkisSaati = kalkisSaati;
+    }
+
+    public String getInisSaati() {
+        return inisSaati;
+    }
+
+    public void setInisSaati(String inisSaati) {
+        this.inisSaati = inisSaati;
+    }
+
+    public Pilot getKaptanPilot() {
+        return kaptanPilot;
+    }
+
+    public void setKaptanPilot(Pilot kaptanPilot) {
+        this.kaptanPilot = kaptanPilot;
+    }
+
+    public Pilot getYardimciPilot() {
+        return yardimciPilot;
+    }
+
+    public void setYardimciPilot(Pilot yardimciPilot) {
+        this.yardimciPilot = yardimciPilot;
+    }
+
+    public Ucak getUcak() {
+        return ucak;
+    }
+
+    public void setUcak(Ucak ucak) {
+        this.ucak = ucak;
+    }
+}
+
+// Ana sınıf
+public class UcusYonetimSistemi {
+
+    public static void main(String[] args) {
+        // Örnek Havaalanları
+        Havaalani istanbul = new Havaalani("IST", "İstanbul Havaalanı");
+        Havaalani ankara = new Havaalani("ESB", "Ankara Esenboğa Havaalanı");
+
+        // Örnek Hava Yolu Şirketi
+        HavaYoluSirketi thy = new HavaYoluSirketi("THY", "Türk Hava Yolları");
+
+        // Örnek Pilotlar
+        Pilot pilot1 = new Pilot("P1", "Ahmet", 5);
+        Pilot pilot2 = new Pilot("P2", "Mehmet", 3);
+
+        // Örnek Uçak
+        Ucak ucak1 = new Ucak("U1", "Boeing 737", thy);
+
+        // Hava Yolu Şirketine Uçak ve Pilot ekleme
+        thy.ucakEkle(ucak1);
+        thy.pilotEkle(pilot1);
+        thy.pilotEkle(pilot2);
+
+        // Örnek Uçuş
+        Ucus ucus1 = new Ucus("UC001", istanbul, ankara, "08:00", "09:30", pilot1, pilot2, ucak1);
+
+        // Uçuş bilgilerini yazdırma
+        System.out.println("Uçuş Kimliği: " + ucus1.getKimlik());
+        System.out.println("Kalkış Havaalanı: " + ucus1.getKalkisHavaalani().getIsim());
+        System.out.println("İniş Havaalanı: " + ucus1.getInisHavaalani().getIsim());
+        System.out.println("Kaptan Pilot: " + ucus1.getKaptanPilot().getIsim());
+        System.out.println("Yardımcı Pilot: " + ucus1.getYardimciPilot().getIsim());
+        System.out.println("Uçak Tipi: " + ucus1.getUcak().getTip());
+    }
+}
